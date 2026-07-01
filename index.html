@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>AI with Soul - An Offer for Jimmy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FDF6F2; --mid-cream:#F5EDE0; --cream-text:#F7E7CE;
+    --navy:#0F1E36; --charcoal:#1A1A2E;
+    --rose:#C4956A; --rose-light:#D4A882; --bronze:#B07856;
+    --white:#FFFFFF;
+    --text-mid:#5A5346; --text-light:#8A8272; --border:#E6DCCC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 1.5rem;}
+  .label{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:1rem;}
+  .badge{display:inline-block;background:rgba(196,149,106,.1);border:1px solid var(--rose);color:var(--bronze);font-family:'Inter',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.42rem 1.1rem;border-radius:50px;margin-bottom:1.6rem;}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;line-height:1.1;font-weight:500;}
+  em{font-style:italic;color:var(--rose);}
+  p{margin-bottom:1rem;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(253,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .nav-inner{max-width:860px;margin:0 auto;padding:.9rem 1.5rem;display:flex;justify-content:space-between;align-items:center;}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:.02em;color:var(--navy);}
+  .nav-logo span{color:var(--rose);font-style:italic;}
+  .nav-tag{font-family:'Inter',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-light);}
+
+  /* HERO */
+  .hero{padding:6rem 0 5rem;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(196,149,106,.14),transparent 62%),url('assets/linen-warm-bg.png');background-size:900px;background-repeat:repeat;}
+  .hero h1{font-size:clamp(2.3rem,5.6vw,3.7rem);font-weight:500;letter-spacing:.005em;margin-bottom:1.3rem;color:var(--navy);}
+  .hero p{font-size:clamp(1.05rem,1.7vw,1.22rem);font-weight:300;color:var(--text-mid);max-width:620px;margin:0 auto;font-family:'Inter',sans-serif;}
+  .rule{width:60px;height:2px;background:var(--rose);margin:1.8rem auto 0;}
+
+  section{padding:4rem 0;}
+  h2.section-title{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:500;margin-bottom:1.1rem;color:var(--navy);}
+  .section-lead{font-size:1.06rem;color:var(--text-mid);margin-bottom:2rem;max-width:640px;}
+
+  /* PILLARS */
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1.8rem;}
+  .pillar{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.7rem;}
+  .pillar h4{font-family:'Inter',sans-serif;font-size:.88rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--bronze);margin-bottom:.7rem;}
+  .pillar p{font-size:.94rem;color:var(--text-mid);margin:0;}
+
+  /* OFFER CARD */
+  .offer-card{background:var(--white);color:var(--charcoal);border-radius:16px;border-left:5px solid var(--rose);padding:2.8rem;margin-top:1.8rem;box-shadow:0 24px 60px rgba(15,30,54,.1);}
+  .offer-card .tag{display:inline-block;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;font-weight:800;color:var(--bronze);margin-bottom:.9rem;}
+  .offer-card h3{font-size:1.9rem;font-weight:500;color:var(--navy);margin-bottom:.4rem;}
+  .price-block{display:flex;align-items:baseline;gap:.5rem;margin:1rem 0 .3rem;}
+  .price{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:600;color:var(--rose);line-height:1;}
+  .price small{font-size:1rem;color:var(--text-light);font-weight:600;font-family:'Inter',sans-serif;}
+  .offer-list{list-style:none;margin-top:1.4rem;}
+  .offer-list li{position:relative;padding-left:1.9rem;margin-bottom:.85rem;font-size:.98rem;color:var(--text-mid);}
+  .offer-list li::before{content:"";position:absolute;left:0;top:.5rem;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px rgba(196,149,106,.16);}
+
+  /* NEXT PHASE cards */
+  .next-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1.8rem;}
+  .next-card{background:var(--mid-cream);border:1px solid var(--border);border-radius:14px;padding:1.8rem;}
+  .next-card .tag{display:block;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;font-weight:800;color:var(--bronze);margin-bottom:.7rem;}
+  .next-card h4{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--navy);margin-bottom:.6rem;}
+  .next-card p{font-size:.92rem;color:var(--text-mid);margin:0;}
+
+  /* CLOSE - navy contrast */
+  .close{text-align:center;padding:5.5rem 0 4.5rem;background:radial-gradient(circle at 50% 0%,rgba(196,149,106,.16),transparent 60%),var(--navy);}
+  .close .label{color:var(--rose-light);}
+  .close h2{font-size:clamp(1.9rem,3.8vw,2.6rem);font-weight:500;margin-bottom:1rem;color:var(--white);}
+  .close p{color:rgba(247,231,206,.82);max-width:540px;margin:0 auto 2rem;font-size:1.05rem;font-family:'Inter',sans-serif;}
+  .book-btn{display:inline-flex;align-items:center;gap:.7rem;background:linear-gradient(135deg,#D4A882 0%,#C4956A 40%,#B5845C 100%);color:var(--white);text-decoration:none;font-family:'Inter',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:1.05rem 2.6rem;border-radius:50px;transition:transform .2s,box-shadow .2s;}
+  .book-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(196,149,106,.35);}
+  .signoff{font-family:'Cormorant Garamond',serif;font-weight:600;font-style:italic;font-size:1.6rem;color:var(--cream-text);margin-top:2.2rem;}
+  .footer{text-align:center;padding:2rem 0;font-size:.75rem;color:var(--text-light);letter-spacing:.06em;font-family:'Inter',sans-serif;text-transform:uppercase;background:var(--navy);border-top:1px solid rgba(247,231,206,.1);}
+  .footer span{color:rgba(247,231,206,.5);}
+
+  @media(max-width:640px){
+    .pillars,.next-cards{grid-template-columns:1fr;}
+    .offer-card{padding:2rem 1.6rem;}
+    section{padding:3rem 0;}
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">AI WITH <span>SOUL</span></div>
+      <div class="nav-tag">For Jimmy</div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="badge">A private proposal &middot; Kelly, AI with Soul</div>
+      <h1>Let's install <em>the system</em> into Spoke N Trail</h1>
+      <p>The Claude operating system we talked through on the call - your Business Brain, one booking flow, and a content engine, built into your back end and running before you touch client work again.</p>
+      <div class="rule"></div>
+    </div>
+  </header>
+
+  <section style="padding-top:4rem;">
+    <div class="wrap">
+      <div class="label">The offer &middot; phase one</div>
+      <h2 class="section-title">The Business Brain, booking and content - <em>installed and running</em></h2>
+      <p class="section-lead">Retail, workshop, hire, tours, shuttles and coaching - five-plus revenue streams off one shop, all currently running through your head. That's the real bottleneck, not any one stream on its own. Phase one gets the core system live inside Spoke N Trail: your voice and all five streams loaded in, one booking flow replacing the DM-and-phone tag, and a content engine that turns the Tassie, NZ and TrailMates footage you're already filming into a repeatable month of social.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <h4>Business Brain + Booking</h4>
+          <p>Your voice, your five revenue streams and Spoke N Trail's serious-rider positioning loaded into one Claude system - then a single booking flow across hire, tours, shuttles, coaching and service, so bookings stop running through your DMs and phone.</p>
+        </div>
+        <div class="pillar">
+          <h4>Content + Marketing Engine</h4>
+          <p>The tour and trail footage you're already filming, turned into a repeatable content system - plus the CRM/AI layer for customer engagement and automating your product launches.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <span class="tag">Done for you, installed in your business</span>
+        <h3>Phase One - Business Brain, Booking &amp; Marketing</h3>
+        <div class="price-block"><span class="price">$5,000</span><small>+ GST</small></div>
+        <ul class="offer-list">
+          <li>Business Brain loaded with your voice, your five revenue streams and Spoke N Trail's serious-rider positioning</li>
+          <li>One booking system across hire, tours, shuttles, coaching and service - the DM-and-phone tag stops</li>
+          <li>Content engine turning your Tassie, NZ and TrailMates footage into a repeatable month of social</li>
+          <li>Marketing automation layer for customer engagement and product-launch automation</li>
+          <li>Website upgrade - tour itineraries, pricing and rider testimonials added so the site sells the trust you've already earned</li>
+          <li>You walk away running it yourself - capability transferred, not a dependency created</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="label">What comes next</div>
+      <h2 class="section-title">The inventory system and staff training - <em>scoped separately</em></h2>
+      <p class="section-lead">Two pieces from our call go beyond a phase-one install and get scoped as their own projects once phase one is live and proven.</p>
+
+      <div class="next-cards">
+        <div class="next-card">
+          <span class="tag">Custom build &middot; own quote</span>
+          <h4>Lightspeed + Shopify Integration</h4>
+          <p>A custom AI data-transformation tool linking Lightspeed Retail and Shopify across your ~15,000 items and ~30 vendors, on hosting compliant with Australian data law. Deployed within 30 days, running parallel to your current systems until it's proven.</p>
+        </div>
+        <div class="next-card">
+          <span class="tag">Add-on &middot; own quote</span>
+          <h4>Staff Training</h4>
+          <p>Automated email monitoring so your team builds product knowledge as it happens, with no manual training overhead. Quoted separately once the core system is live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <div class="label">Ready when you are</div>
+      <h2>Let's get phase one live</h2>
+      <p>Book a time and we'll lock in the install. Once phase one is running, we'll scope the Lightspeed/Shopify build and staff training as their own projects.</p>
+      <a class="book-btn" href="https://api.leadconnectorhq.com/widget/bookings/ai-with-soul-enquiry-call" target="_blank" rel="noopener">Book a time with Kelly</a>
+      <div class="signoff">Kelly x</div>
+    </div>
+  </section>
+
+  <div class="footer">AI with Soul &nbsp;<span>&middot;</span>&nbsp; Kelly Wotherspoon</div>
+
+</body>
+</html>
