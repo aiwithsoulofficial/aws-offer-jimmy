@@ -87,9 +87,17 @@
   .passcode strong{font-family:'Inter',sans-serif;font-weight:800;color:var(--bronze);background:var(--mid-cream);padding:.25rem .8rem;border-radius:6px;letter-spacing:.12em;margin-left:.3rem;}
   .video-note{font-size:.85rem;color:var(--text-light);text-align:center;margin-top:1rem;}
 
+  /* GOOD TO KNOW */
+  .know-card{background:var(--mid-cream);border:1px solid var(--border);border-radius:16px;padding:2.2rem 2.5rem;margin-top:1.8rem;}
+  .know-list{list-style:none;}
+  .know-list li{position:relative;padding-left:1.9rem;margin-bottom:1rem;font-size:.98rem;color:var(--text-mid);}
+  .know-list li:last-child{margin-bottom:0;}
+  .know-list li::before{content:"";position:absolute;left:0;top:.5rem;width:9px;height:9px;border-radius:50%;background:var(--bronze);}
+  .know-list strong{color:var(--navy);}
+
   @media(max-width:640px){
     .pillars{grid-template-columns:1fr;}
-    .offer-card,.video-card{padding:2rem 1.6rem;}
+    .offer-card,.video-card,.know-card{padding:2rem 1.6rem;}
     section{padding:3rem 0;}
   }
 </style>
@@ -128,9 +136,9 @@
 
   <section style="padding-top:0;">
     <div class="wrap">
-      <div class="label">Build one &middot; the custom system &middot; own quote</div>
+      <div class="label">Build one &middot; the custom system</div>
       <h2 class="section-title">Inventory, products and financials - <em>one system</em></h2>
-      <p class="section-lead">This was the first thing you raised, and it's the biggest problem: retail is the heart of Spoke N Trail, and it's about to get bigger with the new Noosaville store. Right now vendor data lands in a dozen different shapes - live feeds from the big brands, CSVs and image folders from the smaller ones - and someone has to manually turn all of that into clean listings across Lightspeed and Shopify, with financials tracked separately again in QuickBooks. This is the build: one system connecting inventory, products and financials, quoted and scoped on its own once we're inside your accounts.</p>
+      <p class="section-lead">This was the first thing you raised, and it's the biggest problem: retail is the heart of Spoke N Trail, and it's about to get bigger with the new Noosaville store. Right now vendor data lands in a dozen different shapes - live feeds from the big brands, CSVs and image folders from the smaller ones - and someone has to manually turn all of that into clean listings across Lightspeed and Shopify, with financials tracked separately again in QuickBooks. This is the build: one system connecting inventory, products and financials, scoped and pulled together, running in your business.</p>
 
       <div class="pillars">
         <div class="pillar">
@@ -144,9 +152,9 @@
       </div>
 
       <div class="offer-card">
-        <span class="tag">Custom build &middot; own quote</span>
+        <span class="tag">Custom build</span>
         <h3>Lightspeed + Shopify + Financials</h3>
-        <div class="price-tbc">Scoped once we're inside your systems</div>
+        <div class="price-block"><span class="price">$5,000</span><small>+ GST</small></div>
         <ul class="offer-list">
           <li>Custom AI data-transformation tool unifying vendor product data into Lightspeed and Shopify</li>
           <li>Built on the ChatGPT data-processing prompt you're already using - not starting from scratch</li>
@@ -154,6 +162,7 @@
           <li>QuickBooks-linked financial dashboard - revenue and forecasting off the same live data</li>
           <li>Hosted on AWS Sydney, compliant with Australian data law</li>
           <li>Deployed within 30 days, running parallel to your current systems until it's proven</li>
+          <li>Kicks off with full access to your systems and a 60-minute walkthrough call - orders, staff, financials, vendors, end to end - so the build is scoped to exactly what you need</li>
         </ul>
       </div>
     </div>
@@ -177,9 +186,10 @@
       </div>
 
       <div class="offer-card">
-        <span class="tag">Done for you, installed in your business</span>
+        <span class="tag">Done for you, installed in your business &middot; bundled rate</span>
         <h3>Business Brain &amp; Marketing Automation</h3>
-        <div class="price-block"><span class="price">$5,000</span><small>+ GST</small></div>
+        <div class="price-block"><span class="price">$2,500</span><small>+ GST</small></div>
+        <p style="font-size:.85rem;color:var(--text-light);margin:-.6rem 0 0;">Normally $5,000 installed on its own - built alongside the system above, so it's half the cost.</p>
         <ul class="offer-list">
           <li>Business Brain loaded with your voice and Spoke N Trail's retail-first positioning</li>
           <li>Hybrid Claude + GHL marketing automation - email, SMS and social unified in one CRM</li>
@@ -191,11 +201,25 @@
     </div>
   </section>
 
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="label">Good to know</div>
+      <h2 class="section-title">How this <em>actually</em> runs</h2>
+      <div class="know-card">
+        <ul class="know-list">
+          <li><strong>Runs on your own infrastructure.</strong> Your GHL, your Claude environment, your Shopify - a Claude Code hybrid stack sitting on top of what you already own. Your API costs are yours to run day to day; this quote covers the build and install.</li>
+          <li><strong>Training's included.</strong> Everything gets walked through as we build it - doesn't take long - and it's all recorded, so you and your team get the recordings to reference anytime.</li>
+          <li><strong>I'm around after.</strong> Available for ad-hoc support and scaffolding if you want to build more into it down the track.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="close">
     <div class="wrap">
       <div class="label">Ready when you are</div>
       <h2>Let's get started</h2>
-      <p>Book a time and we'll lock in scoping for the Lightspeed + Shopify + financials build - the priority - and get the Business Brain and marketing layer live alongside it.</p>
+      <p>Book a time for the 60-minute walkthrough call - you take me through orders, staff, financials and vendors end to end - and we'll get access sorted so both builds can start.</p>
       <a class="book-btn" href="https://api.leadconnectorhq.com/widget/bookings/ai-with-soul-enquiry-call" target="_blank" rel="noopener">Book a time with Kelly</a>
       <div class="signoff">Kelly x</div>
     </div>
