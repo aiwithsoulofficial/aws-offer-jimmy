@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIOS Mission Control - Spoke N Trail</title>
+<title>AIOS Command Centre - Spoke N Trail</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -19,87 +19,76 @@
   --green-bg: rgba(0,229,160,0.08);
   --amber: #f5a623;
   --amber-bg: rgba(245,166,35,0.08);
+  --purple: #c4b5fd;
+  --red: #ef6a6a;
   --border: rgba(196,149,106,0.18);
   --border-light: rgba(196,149,106,0.1);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-html,body { height:100%; overflow:hidden; background:var(--navy); color:var(--cream); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+html,body { height:100%; background:var(--navy); color:var(--cream); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+::-webkit-scrollbar{width:0;height:0;}
 
-/* TOPBAR */
-.topbar {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 24px; height:56px;
-  background:rgba(10,21,37,0.95);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(12px);
-  position:relative; z-index:10;
-}
-.topbar-left { display:flex; align-items:center; gap:20px; }
-.live-badge {
-  display:flex; align-items:center; gap:7px;
-  background:rgba(0,229,160,0.12); border:1px solid rgba(0,229,160,0.3);
-  border-radius:100px; padding:5px 12px;
-  font-size:0.68rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--green);
-}
-.live-dot { width:7px; height:7px; border-radius:50%; background:var(--green); animation:pulse-dot 1.4s ease infinite; }
+/* ===== SIDEBAR ===== */
+.app { display:flex; flex:1; min-height:0; }
+.sidebar { width:236px; flex-shrink:0; background:var(--navy-mid); border-right:1px solid var(--border); display:flex; flex-direction:column; padding:20px 0; }
+.sidebar-brand { padding:0 20px 16px; border-bottom:1px solid var(--border-light); margin-bottom:14px; }
+.sidebar-logo { font-family:'Cormorant Garamond',serif; font-size:.72rem; letter-spacing:.18em; color:var(--cream-dim); text-transform:uppercase; }
+.sidebar-biz { font-family:'Cormorant Garamond',serif; font-size:1.35rem; color:var(--cream); margin-top:5px; }
+.sidebar-live { display:inline-flex; align-items:center; gap:6px; margin-top:10px; background:rgba(0,229,160,0.12); border:1px solid rgba(0,229,160,0.3); border-radius:100px; padding:3px 10px; font-size:.6rem; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:var(--green); }
+.live-dot { width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse-dot 1.4s ease infinite; }
 @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
-.topbar-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--cream); letter-spacing:0.02em; }
+.sidebar-nav { display:flex; flex-direction:column; gap:2px; padding:0 12px; }
+.nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; font-size:.81rem; font-weight:500; color:var(--cream-muted); cursor:pointer; transition:all .15s; border:1px solid transparent; }
+.nav-item .ico { font-size:1rem; width:18px; text-align:center; }
+.nav-item:hover { background:rgba(196,149,106,0.07); color:var(--cream); }
+.nav-item.active { background:rgba(196,149,106,0.14); color:var(--gold-light); border-color:var(--border); }
+.nav-item .nb { margin-left:auto; font-size:.58rem; background:rgba(245,166,35,0.16); color:var(--amber); padding:1px 6px; border-radius:20px; font-weight:700; }
+.sidebar-foot { margin-top:auto; padding:14px 20px 0; border-top:1px solid var(--border-light); }
+.sidebar-foot-label { font-size:.6rem; color:var(--cream-dim); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.claude-link { display:flex; align-items:center; gap:8px; font-size:.72rem; color:var(--cream-muted); }
+.claude-link .dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
+
+/* ===== MAIN AREA ===== */
+.main-area { flex:1; display:flex; flex-direction:column; min-width:0; }
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:0 26px; height:58px; border-bottom:1px solid var(--border-light); flex-shrink:0; }
+.topbar-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--cream); }
 .topbar-title span { color:var(--gold-light); }
-.topbar-right { display:flex; align-items:center; gap:20px; }
-.nav-pill {
-  padding:6px 14px; border-radius:100px; font-size:0.72rem; font-weight:500;
-  color:var(--gold); background:rgba(196,149,106,0.1); border:1px solid var(--border);
-}
-.topbar-logo { font-family:'Cormorant Garamond',serif; font-size:0.85rem; color:var(--cream-dim); letter-spacing:0.15em; text-transform:uppercase; }
-.topbar-time { font-size:0.72rem; font-weight:500; color:var(--cream-dim); font-variant-numeric:tabular-nums; }
+.integrations { display:flex; gap:7px; flex-wrap:wrap; align-items:center; }
+.int-label { font-size:.6rem; color:var(--cream-dim); letter-spacing:1px; text-transform:uppercase; margin-right:4px; }
+.chip { display:flex; align-items:center; gap:6px; font-size:.66rem; font-weight:600; padding:5px 10px; border-radius:20px; background:var(--navy-card); border:1px solid var(--border-light); color:var(--cream-muted); }
+.chip .dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
+.topbar-time { font-size:.72rem; color:var(--cream-dim); font-variant-numeric:tabular-nums; }
 
-/* LAYOUT */
-.main {
-  display:grid;
-  grid-template-columns:270px 1fr 280px;
-  height:calc(100vh - 56px - 40px);
-  gap:0;
-}
+.content-area { flex:1; overflow-y:auto; padding:26px 30px 40px; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+.panel-heading { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; color:var(--cream); margin-bottom:4px; }
+.panel-sub { font-size:.82rem; color:var(--cream-muted); margin-bottom:24px; }
 
-/* PANELS */
-.panel {
-  padding:20px;
-  border-right:1px solid var(--border-light);
-  overflow-y:auto;
-  scrollbar-width:none;
-}
-.panel:last-child { border-right:none; }
-.panel-label {
-  font-size:0.62rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;
-  color:var(--cream-dim); margin-bottom:16px;
-  display:flex; align-items:center; justify-content:space-between;
-}
-.panel-label span { color:var(--gold); font-size:0.68rem; }
+/* ===== SHARED CARD BITS ===== */
+.card { background:var(--navy-card); border:1px solid var(--border-light); border-radius:12px; padding:18px 20px; }
+.section-label { font-size:.62rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--cream-dim); margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; }
+.section-label span { color:var(--gold); }
+.grid-3 { display:grid; grid-template-columns:270px 1fr 280px; gap:18px; align-items:start; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start; }
+.stack { display:flex; flex-direction:column; gap:14px; }
 
-/* AGENTS */
-.agent-list { display:flex; flex-direction:column; gap:8px; }
-.agent-item {
-  background:var(--navy-card);
-  border:1px solid var(--border-light);
-  border-radius:10px;
-  padding:12px 14px;
-  position:relative; overflow:hidden;
-  transition:border-color 0.3s;
-}
-.agent-item::before {
-  content:'';
-  position:absolute; left:0; top:0; bottom:0; width:3px;
-  border-radius:0 2px 2px 0;
-}
+/* stat cards */
+.stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:22px; }
+.stat-card { background:var(--navy-card); border:1px solid var(--border-light); border-radius:12px; padding:16px 14px; text-align:center; }
+.stat-num { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:600; color:var(--gold); line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums; }
+.stat-num.green { color:var(--green); }
+.stat-label { font-size:.62rem; color:var(--cream-dim); font-weight:500; letter-spacing:.5px; line-height:1.4; }
+
+/* agents */
+.agent-item { background:var(--navy-card); border:1px solid var(--border-light); border-radius:10px; padding:12px 14px; position:relative; overflow:hidden; margin-bottom:8px; }
+.agent-item::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:0 2px 2px 0; }
 .agent-item.active::before { background:var(--green); }
 .agent-item.complete::before { background:var(--gold); }
 .agent-item.standby::before { background:rgba(247,231,206,0.2); }
-.agent-name { font-size:0.78rem; font-weight:600; color:var(--cream); margin-bottom:4px; }
-.agent-status {
-  display:flex; align-items:center; gap:6px;
-  font-size:0.68rem; font-weight:400;
-}
+.agent-name { font-size:.78rem; font-weight:600; color:var(--cream); margin-bottom:4px; }
+.agent-status { display:flex; align-items:center; gap:6px; font-size:.68rem; }
 .agent-status.active { color:var(--green); }
 .agent-status.complete { color:var(--gold-light); }
 .agent-status.standby { color:var(--cream-dim); }
@@ -107,305 +96,392 @@ html,body { height:100%; overflow:hidden; background:var(--navy); color:var(--cr
 .status-dot.active { background:var(--green); animation:pulse-dot 1.4s ease infinite; }
 .status-dot.complete { background:var(--gold); }
 .status-dot.standby { background:rgba(247,231,206,0.25); }
-.agent-meta { font-size:0.65rem; color:var(--cream-dim); margin-top:3px; }
+.agent-meta { font-size:.65rem; color:var(--cream-dim); margin-top:3px; }
 
-/* ACTIVITY FEED */
-.feed { display:flex; flex-direction:column; gap:0; }
-.feed-item {
-  display:grid; grid-template-columns:52px 22px 1fr;
-  gap:0 10px; align-items:start;
-  padding:11px 0;
-  border-bottom:1px solid var(--border-light);
-  animation:feed-in 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-@keyframes feed-in { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
-.feed-time { font-size:0.65rem; font-variant-numeric:tabular-nums; color:var(--cream-dim); padding-top:2px; }
-.feed-icon { font-size:0.85rem; }
-.feed-text { font-size:0.75rem; line-height:1.55; }
+/* activity feed */
+.feed-item { display:grid; grid-template-columns:48px 20px 1fr; gap:0 10px; align-items:start; padding:10px 0; border-bottom:1px solid var(--border-light); }
+.feed-item:last-child{border-bottom:none;}
+.feed-time { font-size:.63rem; font-variant-numeric:tabular-nums; color:var(--cream-dim); padding-top:2px; }
+.feed-icon { font-size:.82rem; }
+.feed-text { font-size:.74rem; line-height:1.5; }
 .feed-text strong { color:var(--cream); font-weight:600; display:block; margin-bottom:1px; }
 .feed-text span { color:var(--cream-muted); }
-.feed-tag {
-  display:inline-block; margin-top:4px;
-  padding:2px 7px; border-radius:4px;
-  font-size:0.6rem; font-weight:600; letter-spacing:0.5px;
-  text-transform:uppercase;
-}
+.tag { display:inline-block; margin-top:4px; padding:2px 7px; border-radius:4px; font-size:.58rem; font-weight:600; letter-spacing:.5px; text-transform:uppercase; }
 .tag-booking { background:rgba(196,149,106,0.15); color:var(--gold-light); }
-.tag-content { background:rgba(139,92,246,0.15); color:#c4b5fd; }
+.tag-content { background:rgba(139,92,246,0.15); color:var(--purple); }
 .tag-client { background:rgba(0,229,160,0.1); color:var(--green); }
 .tag-revenue { background:rgba(245,166,35,0.12); color:var(--amber); }
 .tag-retail { background:rgba(0,229,160,0.1); color:var(--green); }
+.tag-alert { background:rgba(239,106,106,0.14); color:var(--red); }
 
-/* IMPACT PANEL */
-.stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:20px; }
-.stat-card {
-  background:var(--navy-card);
-  border:1px solid var(--border-light);
-  border-radius:10px;
-  padding:14px 12px;
-  text-align:center;
-}
-.stat-num {
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.7rem; font-weight:600;
-  color:var(--gold); line-height:1;
-  margin-bottom:4px;
-  font-variant-numeric:tabular-nums;
-}
-.stat-label { font-size:0.62rem; color:var(--cream-dim); font-weight:500; letter-spacing:0.5px; line-height:1.4; }
-.upcoming-list { display:flex; flex-direction:column; gap:6px; }
-.upcoming-item {
-  display:flex; align-items:center; gap:10px;
-  padding:9px 12px;
-  background:var(--navy-card);
-  border:1px solid var(--border-light);
-  border-radius:8px;
-  font-size:0.72rem;
-}
+.upcoming-item { display:flex; align-items:center; gap:10px; padding:9px 12px; background:var(--navy-card); border:1px solid var(--border-light); border-radius:8px; font-size:.72rem; margin-bottom:6px; }
 .upcoming-time { color:var(--gold-light); font-weight:600; font-variant-numeric:tabular-nums; min-width:38px; }
 .upcoming-desc { color:var(--cream-muted); }
 
-/* STATUS BAR */
-.statusbar {
-  height:40px;
-  background:rgba(10,21,37,0.9);
-  border-top:1px solid var(--border-light);
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 24px;
-  font-size:0.65rem; color:var(--cream-dim); font-weight:400;
-  letter-spacing:0.3px;
-}
-.statusbar-left { display:flex; align-items:center; gap:20px; }
+/* bar chart (financials) */
+.bar-row { margin-bottom:14px; }
+.bar-row-top { display:flex; justify-content:space-between; font-size:.74rem; margin-bottom:5px; }
+.bar-row-top .amt { color:var(--gold-light); font-weight:600; font-variant-numeric:tabular-nums; }
+.bar-track { height:8px; background:rgba(247,231,206,0.06); border-radius:6px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,var(--gold-light),var(--gold)); }
+
+/* transaction list */
+.txn-row { display:flex; align-items:center; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border-light); font-size:.75rem; }
+.txn-row:last-child{border-bottom:none;}
+.txn-desc strong{display:block;color:var(--cream);font-weight:600;font-size:.76rem;}
+.txn-desc span{color:var(--cream-dim);font-size:.65rem;}
+.txn-amt{font-weight:600;font-variant-numeric:tabular-nums;}
+.txn-amt.pos{color:var(--green);}
+.txn-amt.neg{color:var(--red);}
+
+/* product approval cards */
+.product-card { display:flex; gap:14px; background:var(--navy-card); border:1px solid var(--border-light); border-radius:12px; padding:14px; margin-bottom:12px; align-items:center; }
+.product-thumb { width:56px; height:56px; border-radius:8px; background:linear-gradient(145deg,rgba(196,149,106,0.25),rgba(196,149,106,0.08)); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.3rem; }
+.product-info { flex:1; min-width:0; }
+.product-info strong { display:block; font-size:.82rem; color:var(--cream); }
+.product-info .meta { font-size:.68rem; color:var(--cream-dim); margin-top:2px; }
+.product-actions { display:flex; gap:8px; flex-shrink:0; }
+.btn { font-size:.68rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:7px 14px; border-radius:20px; border:1px solid var(--border); cursor:pointer; }
+.btn-approve { background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:var(--navy); border:none; }
+.btn-edit { background:transparent; color:var(--cream-muted); }
+.status-pill { font-size:.6rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; }
+.status-pending { background:rgba(245,166,35,0.14); color:var(--amber); }
+.status-live { background:rgba(0,229,160,0.12); color:var(--green); }
+
+/* staff education */
+.staff-row { padding:12px 0; border-bottom:1px solid var(--border-light); }
+.staff-row:last-child{border-bottom:none;}
+.staff-row-top { display:flex; justify-content:space-between; font-size:.78rem; margin-bottom:6px; }
+.staff-row-top strong{color:var(--cream);}
+.staff-row-top span{color:var(--cream-dim);font-size:.68rem;}
+.progress-track { height:6px; background:rgba(247,231,206,0.06); border-radius:6px; overflow:hidden; }
+.progress-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,var(--green),#00c98d); }
+
+/* content calendar */
+.content-row { display:grid; grid-template-columns:90px 90px 1fr 90px; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--border-light); font-size:.75rem; }
+.content-row:last-child{border-bottom:none;}
+.channel-chip{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:600;padding:4px 9px;border-radius:20px;background:var(--navy-mid);border:1px solid var(--border-light);}
+.content-title{color:var(--cream);font-weight:500;}
+.content-time{color:var(--cream-dim);font-size:.68rem;}
+.status-queued{color:var(--amber);}
+.status-posted{color:var(--green);}
+.status-scheduled{color:var(--gold-light);}
+
+/* ads table */
+.ads-table{width:100%;border-collapse:collapse;font-size:.76rem;}
+.ads-table th{text-align:left;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--cream-dim);padding:0 0 10px;font-weight:600;}
+.ads-table td{padding:11px 0;border-top:1px solid var(--border-light);}
+.ads-table td.num{font-variant-numeric:tabular-nums;color:var(--cream-muted);}
+.campaign-name{color:var(--cream);font-weight:600;}
+.campaign-meta{color:var(--cream-dim);font-size:.65rem;}
+.pill-active{font-size:.6rem;font-weight:700;color:var(--green);background:rgba(0,229,160,0.1);padding:3px 9px;border-radius:20px;}
+
+/* community */
+.channel-card{display:flex;align-items:center;gap:14px;background:var(--navy-card);border:1px solid var(--border-light);border-radius:12px;padding:14px 16px;margin-bottom:10px;}
+.channel-ico{width:38px;height:38px;border-radius:10px;background:rgba(196,149,106,0.14);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.channel-info strong{display:block;font-size:.82rem;color:var(--cream);}
+.channel-info span{font-size:.68rem;color:var(--cream-dim);}
+.channel-count{margin-left:auto;text-align:right;}
+.channel-count b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);}
+.channel-count span{font-size:.6rem;color:var(--cream-dim);text-transform:uppercase;letter-spacing:.5px;}
+.composer{background:var(--navy-card);border:1px solid var(--border-light);border-radius:12px;padding:16px;}
+.composer textarea{width:100%;background:var(--navy-mid);border:1px solid var(--border-light);border-radius:8px;color:var(--cream);padding:10px 12px;font-family:'Inter';font-size:.78rem;resize:none;height:60px;margin-bottom:12px;}
+.composer-channels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.cc-check{display:flex;align-items:center;gap:6px;font-size:.68rem;color:var(--cream-muted);background:var(--navy-mid);border:1px solid var(--border-light);padding:5px 10px;border-radius:20px;}
+.cc-check.on{color:var(--gold-light);border-color:var(--border);background:rgba(196,149,106,0.1);}
+.push-btn{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--navy);border:none;font-size:.7rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:9px 18px;border-radius:20px;cursor:pointer;}
+.announce-row{padding:10px 0;border-bottom:1px solid var(--border-light);font-size:.74rem;}
+.announce-row:last-child{border-bottom:none;}
+.announce-row strong{color:var(--cream);display:block;margin-bottom:2px;}
+.announce-row span{color:var(--cream-dim);font-size:.66rem;}
+
+/* status bar */
+.statusbar { height:38px; background:rgba(10,21,37,0.9); border-top:1px solid var(--border-light); display:flex; align-items:center; justify-content:space-between; padding:0 26px; font-size:.64rem; color:var(--cream-dim); flex-shrink:0; }
 .status-ok { color:var(--green); font-weight:600; }
 .statusbar-right { display:flex; align-items:center; gap:6px; }
 .update-dot { width:5px; height:5px; border-radius:50%; background:var(--green); }
+
+@media(max-width:1100px){ .grid-3{grid-template-columns:1fr;} .grid-2{grid-template-columns:1fr;} .stat-grid{grid-template-columns:1fr 1fr;} }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-left">
-    <div class="live-badge"><div class="live-dot"></div>LIVE</div>
-    <div class="topbar-title">AIOS Mission Control &middot; <span>Spoke N Trail</span></div>
-  </div>
-  <div class="nav-pill">Mission Control</div>
-  <div class="topbar-right">
-    <div class="topbar-time" id="clock">09:47 AM</div>
-    <div class="topbar-logo">AI WITH SOUL</div>
-  </div>
-</div>
+<div class="app">
 
-<div class="main">
-
-  <!-- LEFT: AGENTS -->
-  <div class="panel">
-    <div class="panel-label">Running Agents <span id="agent-count">4 ACTIVE</span></div>
-    <div class="agent-list">
-      <div class="agent-item complete">
-        <div class="agent-name">Morning Briefing</div>
-        <div class="agent-status complete"><div class="status-dot complete"></div>Completed</div>
-        <div class="agent-meta">Ran 7:02 AM - 3 priorities flagged</div>
-      </div>
-      <div class="agent-item active">
-        <div class="agent-name">Booking Agent</div>
-        <div class="agent-status active"><div class="status-dot active"></div>Active</div>
-        <div class="agent-meta">Hire, tours, shuttles, coaching, service - one queue</div>
-      </div>
-      <div class="agent-item active">
-        <div class="agent-name">Content Engine</div>
-        <div class="agent-status active"><div class="status-dot active"></div>Active</div>
-        <div class="agent-meta">Tassie tour footage - 4 clips queued</div>
-      </div>
-      <div class="agent-item active">
-        <div class="agent-name">Customer Engagement</div>
-        <div class="agent-status active"><div class="status-dot active"></div>Active</div>
-        <div class="agent-meta">Nurture + product-launch automation running</div>
-      </div>
-      <div class="agent-item standby">
-        <div class="agent-name">Inventory Sync - Lightspeed &amp; Shopify</div>
-        <div class="agent-status standby"><div class="status-dot standby"></div>Phase 2</div>
-        <div class="agent-meta">Scoped separately - ~15,000 items, ~30 vendors</div>
-      </div>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo">AI with Soul &middot; AIOS</div>
+      <div class="sidebar-biz">Spoke N Trail</div>
+      <div class="sidebar-live"><div class="live-dot"></div>Live</div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-item active" data-tab="overview"><span class="ico">🧭</span>Overview</div>
+      <div class="nav-item" data-tab="financials"><span class="ico">💰</span>Financials</div>
+      <div class="nav-item" data-tab="products"><span class="ico">📦</span>Product Launches<span class="nb">3</span></div>
+      <div class="nav-item" data-tab="content"><span class="ico">🎬</span>Content Engine</div>
+      <div class="nav-item" data-tab="ads"><span class="ico">📈</span>Google Ads</div>
+      <div class="nav-item" data-tab="community"><span class="ico">💬</span>Community Hub</div>
+    </div>
+    <div class="sidebar-foot">
+      <div class="sidebar-foot-label">Central Source Of Truth</div>
+      <div class="claude-link"><div class="dot"></div>Connected to your Claude environment</div>
     </div>
   </div>
 
-  <!-- CENTER: ACTIVITY FEED -->
-  <div class="panel" style="border-right:1px solid var(--border-light)">
-    <div class="panel-label">Activity Feed <span id="feed-count">12 TODAY</span></div>
-    <div class="feed" id="feed">
-      <div class="feed-item">
-        <div class="feed-time">09:47</div>
-        <div class="feed-icon">🚵</div>
-        <div class="feed-text">
-          <strong>Booking confirmed - Tasmania Trail Tour</strong>
-          <span>4 riders · deposit received · itinerary sent automatically</span>
-          <div><span class="feed-tag tag-booking">Booking</span></div>
-        </div>
+  <!-- MAIN -->
+  <div class="main-area">
+    <div class="topbar">
+      <div class="topbar-title">AIOS Command Centre &middot; <span id="tab-title">Overview</span></div>
+      <div class="integrations">
+        <span class="int-label">Connected</span>
+        <div class="chip"><div class="dot"></div>Shopify</div>
+        <div class="chip"><div class="dot"></div>QuickBooks</div>
+        <div class="chip"><div class="dot"></div>Google Ads</div>
+        <div class="chip"><div class="dot"></div>GHL</div>
+        <div class="chip"><div class="dot"></div>Meta / WhatsApp</div>
       </div>
-      <div class="feed-item">
-        <div class="feed-time">09:44</div>
-        <div class="feed-icon">🎬</div>
-        <div class="feed-text">
-          <strong>Content scheduled - Instagram Reel</strong>
-          <span>Thursday 5:30 PM · "TrailMates night ride - this week's route"</span>
-          <div><span class="feed-tag tag-content">Content</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">09:41</div>
-        <div class="feed-icon">🚡</div>
-        <div class="feed-text">
-          <strong>Shuttle booking synced</strong>
-          <span>Uphill shuttle, 9:00 AM Saturday · 6 riders confirmed</span>
-          <div><span class="feed-tag tag-booking">Booking</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">09:38</div>
-        <div class="feed-icon">☀️</div>
-        <div class="feed-text">
-          <strong>Morning briefing delivered</strong>
-          <span>3 priority actions · 2 bookings to confirm · Week snapshot included</span>
-          <div><span class="feed-tag tag-client">System</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">09:31</div>
-        <div class="feed-icon">🚲</div>
-        <div class="feed-text">
-          <strong>Hire booking confirmed - Callum R.</strong>
-          <span>2x full-suspension, weekend hire · Waiver sent and signed</span>
-          <div><span class="feed-tag tag-booking">Booking</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">09:19</div>
-        <div class="feed-icon">🎓</div>
-        <div class="feed-text">
-          <strong>Coaching session booked - skills clinic</strong>
-          <span>Saturday 8:00 AM · 3 spots remaining · Auto-added to roster</span>
-          <div><span class="feed-tag tag-booking">Booking</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">09:11</div>
-        <div class="feed-icon">🎥</div>
-        <div class="feed-text">
-          <strong>Content pipeline complete - NZ tour footage</strong>
-          <span>6 clips identified · captions drafted in your voice</span>
-          <div><span class="feed-tag tag-content">Content</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">09:04</div>
-        <div class="feed-icon">🔧</div>
-        <div class="feed-text">
-          <strong>Workshop slot booked - service</strong>
-          <span>Tuesday 10:00 AM · Full-service tune · Reminder scheduled</span>
-          <div><span class="feed-tag tag-booking">Booking</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">08:57</div>
-        <div class="feed-icon">📧</div>
-        <div class="feed-text">
-          <strong>Nurture email sent - past NZ tour rider</strong>
-          <span>2027 early-bird offer · Personalised to their trip · Sent 08:57</span>
-          <div><span class="feed-tag tag-revenue">Revenue</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">08:44</div>
-        <div class="feed-icon">🛒</div>
-        <div class="feed-text">
-          <strong>Retail enquiry auto-answered</strong>
-          <span>Pivot Trail 429 stock check · Answered in your voice, in seconds</span>
-          <div><span class="feed-tag tag-retail">Retail</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">08:32</div>
-        <div class="feed-icon">⭐</div>
-        <div class="feed-text">
-          <strong>Rider testimonial captured</strong>
-          <span>Tassie tour feedback form · Added to website review queue</span>
-          <div><span class="feed-tag tag-content">Content</span></div>
-        </div>
-      </div>
-      <div class="feed-item">
-        <div class="feed-time">08:17</div>
-        <div class="feed-icon">💰</div>
-        <div class="feed-text">
-          <strong>Product launch queued - Rocky Mountain stock drop</strong>
-          <span>Launch sequence drafted · Ready for your approval</span>
-          <div><span class="feed-tag tag-revenue">Revenue</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT: IMPACT -->
-  <div class="panel">
-    <div class="panel-label">Impact Today</div>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-num" id="stat-hours">0</div>
-        <div class="stat-label">Hours<br>Reclaimed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat-bookings">0</div>
-        <div class="stat-label">Bookings<br>Synced</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat-revenue">$0</div>
-        <div class="stat-label">Revenue<br>Attributed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="stat-content">0</div>
-        <div class="stat-label">Content<br>Auto-posted</div>
-      </div>
+      <div class="topbar-time" id="clock">09:47 AM</div>
     </div>
 
-    <div class="panel-label" style="margin-top:4px">Upcoming</div>
-    <div class="upcoming-list">
-      <div class="upcoming-item">
-        <div class="upcoming-time">10:00</div>
-        <div class="upcoming-desc">Weekly review briefing</div>
+    <div class="content-area">
+
+      <!-- ================= OVERVIEW ================= -->
+      <div class="tab-panel active" id="tab-overview">
+        <div class="panel-sub">Everything feeding into one place - bookings, sales, content, ads and community, all wired through your Claude environment.</div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-num" id="stat-hours">0</div><div class="stat-label">Hours<br>Reclaimed</div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-bookings">0</div><div class="stat-label">Bookings<br>Synced</div></div>
+          <div class="stat-card"><div class="stat-num green" id="stat-revenue">$0</div><div class="stat-label">Revenue<br>Attributed</div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-content">0</div><div class="stat-label">Content<br>Auto-posted</div></div>
+        </div>
+
+        <div class="grid-3">
+          <div>
+            <div class="section-label">Running Agents <span>5 ACTIVE</span></div>
+            <div class="agent-item complete"><div class="agent-name">Morning Briefing</div><div class="agent-status complete"><div class="status-dot complete"></div>Completed</div><div class="agent-meta">Ran 7:02 AM - 3 priorities flagged</div></div>
+            <div class="agent-item active"><div class="agent-name">Booking Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Hire, tours, shuttles, coaching, service</div></div>
+            <div class="agent-item active"><div class="agent-name">Vendor Intake Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">3 new products awaiting your approval</div></div>
+            <div class="agent-item active"><div class="agent-name">Content Engine</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Tassie footage - 4 clips queued</div></div>
+            <div class="agent-item active"><div class="agent-name">Community &amp; Ads Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Announcement drafted, ads monitored</div></div>
+          </div>
+
+          <div>
+            <div class="section-label">Activity Feed <span id="feed-count">12 TODAY</span></div>
+            <div id="feed">
+              <div class="feed-item"><div class="feed-time">09:47</div><div class="feed-icon">📦</div><div class="feed-text"><strong>New vendor product - awaiting approval</strong><span>Pivot Trail 429, size M · Photos + pricing from Pivot loaded</span><div><span class="tag tag-alert">Approval</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:44</div><div class="feed-icon">💰</div><div class="feed-text"><strong>Sale synced from Shopify</strong><span>$1,240 · Full-suspension hire package · QuickBooks updated</span><div><span class="tag tag-revenue">Financials</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:41</div><div class="feed-icon">🚡</div><div class="feed-text"><strong>Shuttle booking synced</strong><span>Uphill shuttle, 9:00 AM Saturday · 6 riders confirmed</span><div><span class="tag tag-booking">Booking</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:38</div><div class="feed-icon">💬</div><div class="feed-text"><strong>Announcement pushed - Community Hub</strong><span>TrailMates Thursday ride · FB Group + WhatsApp + Instagram</span><div><span class="tag tag-client">Community</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:31</div><div class="feed-icon">🎬</div><div class="feed-text"><strong>Content scheduled - Instagram Reel</strong><span>Thursday 5:30 PM · "TrailMates night ride - this week's route"</span><div><span class="tag tag-content">Content</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:19</div><div class="feed-icon">📈</div><div class="feed-text"><strong>Google Ads - budget shift approved</strong><span>+$15/day to Tasmania Tour campaign · CPA trending down</span><div><span class="tag tag-revenue">Ads</span></div></div></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-label">Upcoming</div>
+            <div class="upcoming-item"><div class="upcoming-time">10:00</div><div class="upcoming-desc">Weekly review briefing</div></div>
+            <div class="upcoming-item"><div class="upcoming-time">11:00</div><div class="upcoming-desc">TrailMates reel auto-publishes</div></div>
+            <div class="upcoming-item"><div class="upcoming-time">12:00</div><div class="upcoming-desc">Vendor approval reminder - 3 pending</div></div>
+            <div class="upcoming-item"><div class="upcoming-time">14:00</div><div class="upcoming-desc">Saturday shuttle roster confirms</div></div>
+            <div class="upcoming-item"><div class="upcoming-time">17:00</div><div class="upcoming-desc">Daily revenue + ad spend report</div></div>
+          </div>
+        </div>
       </div>
-      <div class="upcoming-item">
-        <div class="upcoming-time">11:00</div>
-        <div class="upcoming-desc">TrailMates reel auto-publishes</div>
+
+      <!-- ================= FINANCIALS ================= -->
+      <div class="tab-panel" id="tab-financials">
+        <div class="panel-heading">Financials</div>
+        <div class="panel-sub">Live from Shopify + QuickBooks - one number, not two spreadsheets.</div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-num green">$4,180</div><div class="stat-label">Today's<br>Sales</div></div>
+          <div class="stat-card"><div class="stat-num">$61.2K</div><div class="stat-label">MTD<br>Revenue</div></div>
+          <div class="stat-card"><div class="stat-num">$2,340</div><div class="stat-label">Outstanding<br>Invoices</div></div>
+          <div class="stat-card"><div class="stat-num">$186</div><div class="stat-label">Avg Order<br>Value</div></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="section-label">Sales By Channel <span>MTD</span></div>
+            <div class="bar-row"><div class="bar-row-top"><span>Retail</span><span class="amt">$26,400</span></div><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div></div>
+            <div class="bar-row"><div class="bar-row-top"><span>Guided Tours</span><span class="amt">$14,100</span></div><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div></div>
+            <div class="bar-row"><div class="bar-row-top"><span>Bike Hire</span><span class="amt">$9,850</span></div><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div></div>
+            <div class="bar-row"><div class="bar-row-top"><span>Workshop / Service</span><span class="amt">$6,300</span></div><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div></div>
+            <div class="bar-row"><div class="bar-row-top"><span>Shuttles</span><span class="amt">$3,100</span></div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div></div>
+            <div class="bar-row" style="margin-bottom:0;"><div class="bar-row-top"><span>Skills Coaching</span><span class="amt">$1,450</span></div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div></div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <div class="section-label">Synced From Shopify <span>Recent orders</span></div>
+              <div class="txn-row"><div class="txn-desc"><strong>Order #4821</strong><span>Pivot Trail 429 · full price</span></div><div class="txn-amt pos">+$6,499</div></div>
+              <div class="txn-row"><div class="txn-desc"><strong>Order #4820</strong><span>Service - full tune</span></div><div class="txn-amt pos">+$140</div></div>
+              <div class="txn-row"><div class="txn-desc"><strong>Order #4819</strong><span>Weekend hire - 2x bikes</span></div><div class="txn-amt pos">+$220</div></div>
+            </div>
+            <div class="card">
+              <div class="section-label">Synced From QuickBooks <span>Recent</span></div>
+              <div class="txn-row"><div class="txn-desc"><strong>Vendor invoice - Specialized</strong><span>Stock order, due in 14 days</span></div><div class="txn-amt neg">-$8,240</div></div>
+              <div class="txn-row"><div class="txn-desc"><strong>Payout received</strong><span>Shopify payout, settled</span></div><div class="txn-amt pos">+$4,180</div></div>
+              <div class="txn-row"><div class="txn-desc"><strong>Google Ads spend</strong><span>Auto-reconciled, daily</span></div><div class="txn-amt neg">-$210</div></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="upcoming-item">
-        <div class="upcoming-time">12:00</div>
-        <div class="upcoming-desc">Tassie deposit follow-up runs</div>
+
+      <!-- ================= PRODUCT LAUNCHES ================= -->
+      <div class="tab-panel" id="tab-products">
+        <div class="panel-heading">Product Launches</div>
+        <div class="panel-sub">Every new item a vendor pushes lands here first - you approve price and photos before it ever goes live on Shopify.</div>
+
+        <div class="section-label">Pending Your Approval <span>3</span></div>
+        <div class="product-card">
+          <div class="product-thumb">🚵</div>
+          <div class="product-info"><strong>Pivot Trail 429 - Size M, Storm Grey</strong><div class="meta">Vendor: Pivot · Suggested price $6,499 · 6 photos loaded</div></div>
+          <div class="status-pill status-pending">Pending</div>
+          <div class="product-actions"><div class="btn btn-edit">Edit</div><div class="btn btn-approve">Approve</div></div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb">🧢</div>
+          <div class="product-info"><strong>Specialized S-Works Helmet - 3 colourways</strong><div class="meta">Vendor: Specialized · Suggested price $399 · 9 photos loaded</div></div>
+          <div class="status-pill status-pending">Pending</div>
+          <div class="product-actions"><div class="btn btn-edit">Edit</div><div class="btn btn-approve">Approve</div></div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb">🔧</div>
+          <div class="product-info"><strong>Rocky Mountain Altitude - 2027 range, 4 sizes</strong><div class="meta">Vendor: Rocky Mountain · Suggested price $8,999 · 12 photos loaded</div></div>
+          <div class="status-pill status-pending">Pending</div>
+          <div class="product-actions"><div class="btn btn-edit">Edit</div><div class="btn btn-approve">Approve</div></div>
+        </div>
+
+        <div class="section-label" style="margin-top:24px;">Live On Shopify <span>Approved this week</span></div>
+        <div class="product-card">
+          <div class="product-thumb">🚲</div>
+          <div class="product-info"><strong>Specialized Turbo Levo - 2 builds</strong><div class="meta">Approved Tue · Live on Shopify · 3 sold since launch</div></div>
+          <div class="status-pill status-live">Live</div>
+        </div>
+
+        <div class="grid-2" style="margin-top:24px;">
+          <div class="card">
+            <div class="section-label">Staff Product Knowledge <span>New arrivals</span></div>
+            <div class="staff-row"><div class="staff-row-top"><strong>Pivot Trail 429</strong><span>4 of 6 reviewed</span></div><div class="progress-track"><div class="progress-fill" style="width:67%"></div></div></div>
+            <div class="staff-row"><div class="staff-row-top"><strong>Specialized S-Works Helmet</strong><span>2 of 6 reviewed</span></div><div class="progress-track"><div class="progress-fill" style="width:33%"></div></div></div>
+            <div class="staff-row" style="border-bottom:none;"><div class="staff-row-top"><strong>Rocky Mountain Altitude</strong><span>0 of 6 reviewed</span></div><div class="progress-track"><div class="progress-fill" style="width:0%"></div></div></div>
+          </div>
+          <div class="card">
+            <div class="section-label">How It Works</div>
+            <div style="font-size:.78rem;color:var(--cream-muted);line-height:1.7;">Vendor pushes a new product &rarr; it lands here, not live. You approve price and photos &rarr; it publishes to Shopify automatically. The same card gets pushed to your staff as a quick-read spec sheet, so the floor knows the product before a customer asks.</div>
+          </div>
+        </div>
       </div>
-      <div class="upcoming-item">
-        <div class="upcoming-time">14:00</div>
-        <div class="upcoming-desc">Saturday shuttle roster confirms</div>
+
+      <!-- ================= CONTENT ENGINE ================= -->
+      <div class="tab-panel" id="tab-content">
+        <div class="panel-heading">Content Engine</div>
+        <div class="panel-sub">Every channel, one queue - built from the tour and trail footage you're already filming.</div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <div class="section-label">This Week's Queue</div>
+          <div class="content-row"><div class="channel-chip">📸 Instagram</div><div class="content-time">Thu 5:30 PM</div><div class="content-title">TrailMates night ride - this week's route</div><div class="status-scheduled">Scheduled</div></div>
+          <div class="content-row"><div class="channel-chip">👥 Facebook</div><div class="content-time">Wed 9:00 AM</div><div class="content-title">Tasmania tour recap - rider gallery</div><div class="status-queued">Queued</div></div>
+          <div class="content-row"><div class="channel-chip">🎵 TikTok</div><div class="content-time">Tue 6:00 PM</div><div class="content-title">"POV: uphill shuttle to the good stuff"</div><div class="status-posted">Posted</div></div>
+          <div class="content-row"><div class="channel-chip">✉️ Email</div><div class="content-time">Fri 8:00 AM</div><div class="content-title">NZ 2027 tour - early bird for past riders</div><div class="status-queued">Queued</div></div>
+          <div class="content-row"><div class="channel-chip">📝 Blog / SEO</div><div class="content-time">Mon 10:00 AM</div><div class="content-title">Noosa hinterland trail guide - 5 rides for every level</div><div class="status-scheduled">Scheduled</div></div>
+        </div>
+
+        <div class="section-label">Source Footage</div>
+        <div class="grid-2">
+          <div class="card"><strong style="font-size:.85rem;">Tasmania Tour - latest run</strong><div style="font-size:.72rem;color:var(--cream-dim);margin-top:6px;">4 clips identified · captions drafted in your voice</div></div>
+          <div class="card"><strong style="font-size:.85rem;">TrailMates Thursday Rides</strong><div style="font-size:.72rem;color:var(--cream-dim);margin-top:6px;">6 clips logged this month · weekly reel pattern</div></div>
+        </div>
       </div>
-      <div class="upcoming-item">
-        <div class="upcoming-time">17:00</div>
-        <div class="upcoming-desc">Daily revenue report</div>
+
+      <!-- ================= GOOGLE ADS ================= -->
+      <div class="tab-panel" id="tab-ads">
+        <div class="panel-heading">Google Ads</div>
+        <div class="panel-sub">Spend, clicks and bookings attributed - watched daily so budget moves to what's working.</div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-num">$1,860</div><div class="stat-label">Spend<br>MTD</div></div>
+          <div class="stat-card"><div class="stat-num">4,120</div><div class="stat-label">Clicks<br>MTD</div></div>
+          <div class="stat-card"><div class="stat-num green">86</div><div class="stat-label">Conversions<br>MTD</div></div>
+          <div class="stat-card"><div class="stat-num">6.4x</div><div class="stat-label">ROAS</div></div>
+        </div>
+
+        <div class="card">
+          <div class="section-label">Active Campaigns</div>
+          <table class="ads-table">
+            <tr><th>Campaign</th><th>Spend</th><th>CTR</th><th>Conversions</th><th>Status</th></tr>
+            <tr><td><div class="campaign-name">Tasmania Tour Bookings</div><div class="campaign-meta">Search + Display</div></td><td class="num">$620</td><td class="num">4.8%</td><td class="num">22</td><td><span class="pill-active">Active</span></td></tr>
+            <tr><td><div class="campaign-name">Weekend Hire Promo</div><div class="campaign-meta">Search</div></td><td class="num">$410</td><td class="num">3.9%</td><td class="num">31</td><td><span class="pill-active">Active</span></td></tr>
+            <tr><td><div class="campaign-name">Retail - Trail Bike Range</div><div class="campaign-meta">Shopping</div></td><td class="num">$540</td><td class="num">2.6%</td><td class="num">18</td><td><span class="pill-active">Active</span></td></tr>
+            <tr><td><div class="campaign-name">Shuttle Bookings - Local</div><div class="campaign-meta">Search</div></td><td class="num">$290</td><td class="num">5.2%</td><td class="num">15</td><td><span class="pill-active">Active</span></td></tr>
+          </table>
+        </div>
       </div>
+
+      <!-- ================= COMMUNITY HUB ================= -->
+      <div class="tab-panel" id="tab-community">
+        <div class="panel-heading">Community Hub</div>
+        <div class="panel-sub">Every channel your riders live in, in one place - push an announcement once, it lands everywhere.</div>
+
+        <div class="grid-2">
+          <div>
+            <div class="section-label">Your Channels</div>
+            <div class="channel-card"><div class="channel-ico">👥</div><div class="channel-info"><strong>Spoke N Trail Riders</strong><span>Private Facebook Group</span></div><div class="channel-count"><b>842</b><span>Members</span></div></div>
+            <div class="channel-card"><div class="channel-ico">💬</div><div class="channel-info"><strong>TrailMates Crew</strong><span>Facebook Messenger Group</span></div><div class="channel-count"><b>96</b><span>Members</span></div></div>
+            <div class="channel-card"><div class="channel-ico">📱</div><div class="channel-info"><strong>Ride Alerts</strong><span>WhatsApp Broadcast List</span></div><div class="channel-count"><b>214</b><span>Subscribers</span></div></div>
+            <div class="channel-card"><div class="channel-ico">📸</div><div class="channel-info"><strong>@spokentrail</strong><span>Instagram</span></div><div class="channel-count"><b>5.1K</b><span>Followers</span></div></div>
+            <div class="channel-card"><div class="channel-ico">✉️</div><div class="channel-info"><strong>Rider List</strong><span>Email / GHL</span></div><div class="channel-count"><b>1,380</b><span>Contacts</span></div></div>
+          </div>
+
+          <div class="stack">
+            <div class="composer">
+              <div class="section-label">Push An Announcement</div>
+              <textarea placeholder="TrailMates ride moved to Friday this week - same trailhead, 5:30pm start..."></textarea>
+              <div class="composer-channels">
+                <div class="cc-check on">✓ FB Group</div>
+                <div class="cc-check on">✓ Messenger</div>
+                <div class="cc-check on">✓ WhatsApp</div>
+                <div class="cc-check">Instagram</div>
+                <div class="cc-check">Email</div>
+              </div>
+              <div class="push-btn">Push To All Selected Channels</div>
+            </div>
+            <div class="card">
+              <div class="section-label">Recent Announcements</div>
+              <div class="announce-row"><strong>TrailMates Thursday ride confirmed</strong><span>FB Group + WhatsApp + Instagram Story · 92 combined reactions</span></div>
+              <div class="announce-row"><strong>New Rocky Mountain stock landing Friday</strong><span>FB Group + Email · 340 opens</span></div>
+              <div class="announce-row" style="border-bottom:none;"><strong>Tasmania tour - 2 spots left</strong><span>WhatsApp + Instagram · 4 enquiries same day</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
 
-</div>
-
-<div class="statusbar">
-  <div class="statusbar-left">
-    <span class="status-ok">● All systems operational</span>
-    <span>4 agents running</span>
-    <span>38 actions completed today</span>
-  </div>
-  <div class="statusbar-right">
-    <div class="update-dot"></div>
-    <span id="last-update">Updated just now</span>
+    <div class="statusbar">
+      <div class="statusbar-left"><span class="status-ok">● All systems operational</span> &nbsp; 5 agents running &nbsp; 38 actions completed today</div>
+      <div class="statusbar-right"><div class="update-dot"></div><span id="last-update">Updated just now</span></div>
+    </div>
   </div>
 </div>
 
 <script>
+// Tab switching
+const titles = { overview:'Overview', financials:'Financials', products:'Product Launches', content:'Content Engine', ads:'Google Ads', community:'Community Hub' };
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    item.classList.add('active');
+    const tab = item.getAttribute('data-tab');
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('tab-title').textContent = titles[tab];
+  });
+});
+
 // Clock
 function updateClock() {
   const now = new Date();
@@ -440,36 +516,28 @@ setTimeout(() => {
 
 // Live feed - add new items periodically
 const newItems = [
-  { time: null, icon: '🚵', strong: 'Booking confirmed - guided day tour', text: 'Noosa hinterland loop · 3 riders · Deposit received', tag: 'tag-booking', label: 'Booking' },
-  { time: null, icon: '📧', strong: 'Follow-up sent - hire customer', text: 'Return reminder + upsell to weekend tour · Sent automatically', tag: 'tag-revenue', label: 'Revenue' },
-  { time: null, icon: '🎬', strong: 'TrailMates footage logged', text: 'Tuesday night ride · 5 clips flagged for content queue', tag: 'tag-content', label: 'Content' },
-  { time: null, icon: '🔧', strong: 'Workshop reminder sent', text: 'Service due · Auto-scheduled follow-up booking link', tag: 'tag-booking', label: 'Booking' },
+  { icon:'🚵', strong:'Booking confirmed - guided day tour', text:'Noosa hinterland loop · 3 riders · Deposit received', tag:'tag-booking', label:'Booking' },
+  { icon:'📦', strong:'New vendor product logged', text:'Specialized stock drop · Awaiting your price approval', tag:'tag-alert', label:'Approval' },
+  { icon:'💰', strong:'Sale synced from Shopify', text:'$399 · Helmet · QuickBooks updated automatically', tag:'tag-revenue', label:'Financials' },
+  { icon:'💬', strong:'Announcement pushed - Community Hub', text:'Stock drop alert · FB Group + WhatsApp', tag:'tag-client', label:'Community' },
 ];
 let itemIdx = 0;
 function addFeedItem() {
   const item = newItems[itemIdx % newItems.length];
   itemIdx++;
   const now = new Date();
-  const h = now.getHours(), m = now.getMinutes();
-  const time = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+  const time = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
   const feed = document.getElementById('feed');
   const div = document.createElement('div');
   div.className = 'feed-item';
-  div.innerHTML = `
-    <div class="feed-time">${time}</div>
-    <div class="feed-icon">${item.icon}</div>
-    <div class="feed-text">
-      <strong>${item.strong}</strong>
-      <span>${item.text}</span>
-      <div><span class="feed-tag ${item.tag}">${item.label}</span></div>
-    </div>`;
+  div.innerHTML = `<div class="feed-time">${time}</div><div class="feed-icon">${item.icon}</div><div class="feed-text"><strong>${item.strong}</strong><span>${item.text}</span><div><span class="tag ${item.tag}">${item.label}</span></div></div>`;
   feed.insertBefore(div, feed.firstChild);
   const count = document.getElementById('feed-count');
   const n = parseInt(count.textContent) + 1;
   count.textContent = n + ' TODAY';
   document.getElementById('last-update').textContent = 'Updated just now';
 }
-setInterval(addFeedItem, 9000);
+setInterval(addFeedItem, 11000);
 </script>
 </body>
 </html>
