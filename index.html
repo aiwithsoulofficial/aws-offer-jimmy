@@ -39,7 +39,7 @@
   .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(196,149,106,.16),transparent 62%),linear-gradient(180deg,rgba(253,246,242,.55),rgba(253,246,242,.75) 60%,var(--cream) 100%);}
   .hero .wrap{position:relative;z-index:1;}
   .hero h1{font-size:clamp(2.3rem,5.6vw,3.7rem);font-weight:500;letter-spacing:.005em;margin-bottom:1.3rem;color:var(--navy);}
-  .hero p{font-size:clamp(1.05rem,1.7vw,1.22rem);font-weight:300;color:var(--text-mid);max-width:620px;margin:0 auto;font-family:'Inter',sans-serif;}
+  .hero p{font-size:clamp(1.05rem,1.7vw,1.22rem);font-weight:300;color:var(--text-mid);max-width:640px;margin:0 auto;font-family:'Inter',sans-serif;}
   .rule{width:60px;height:2px;background:var(--rose);margin:1.8rem auto 0;}
 
   section{padding:4rem 0;}
@@ -59,16 +59,10 @@
   .price-block{display:flex;align-items:baseline;gap:.5rem;margin:1rem 0 .3rem;}
   .price{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:600;color:var(--rose);line-height:1;}
   .price small{font-size:1rem;color:var(--text-light);font-weight:600;font-family:'Inter',sans-serif;}
+  .price-tbc{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--rose);line-height:1;margin:1rem 0 .3rem;}
   .offer-list{list-style:none;margin-top:1.4rem;}
   .offer-list li{position:relative;padding-left:1.9rem;margin-bottom:.85rem;font-size:.98rem;color:var(--text-mid);}
   .offer-list li::before{content:"";position:absolute;left:0;top:.5rem;width:9px;height:9px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px rgba(196,149,106,.16);}
-
-  /* NEXT PHASE cards */
-  .next-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1.8rem;}
-  .next-card{background:var(--mid-cream);border:1px solid var(--border);border-radius:14px;padding:1.8rem;}
-  .next-card .tag{display:block;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;font-weight:800;color:var(--bronze);margin-bottom:.7rem;}
-  .next-card h4{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--navy);margin-bottom:.6rem;}
-  .next-card p{font-size:.92rem;color:var(--text-mid);margin:0;}
 
   /* CLOSE - navy contrast */
   .close{text-align:center;padding:5.5rem 0 4.5rem;background:radial-gradient(circle at 50% 0%,rgba(196,149,106,.16),transparent 60%),var(--navy);}
@@ -82,7 +76,7 @@
   .footer span{color:rgba(247,231,206,.5);}
 
   @media(max-width:640px){
-    .pillars,.next-cards{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
     .offer-card{padding:2rem 1.6rem;}
     section{padding:3rem 0;}
   }
@@ -100,40 +94,28 @@
   <header class="hero">
     <div class="wrap">
       <div class="badge">A private proposal &middot; Kelly, AI with Soul</div>
-      <h1>Let's install <em>the system</em> into Spoke N Trail</h1>
-      <p>The Claude operating system we talked through on the call - your Business Brain, one booking flow, and a content engine, built into your back end and running before you touch client work again.</p>
+      <h1>Let's connect Spoke N Trail's <em>whole shop</em></h1>
+      <p>One system pulling your vendor data, Lightspeed and Shopify into a single source of truth - plus the marketing, staff knowledge and financial visibility to run the retail business without the manual grind.</p>
       <div class="rule"></div>
     </div>
   </header>
 
   <section style="padding-top:4rem;">
     <div class="wrap">
-      <div class="label">The offer &middot; phase one</div>
-      <h2 class="section-title">The Business Brain, booking and content - <em>installed and running</em></h2>
-      <p class="section-lead">Retail, workshop, hire, tours, shuttles and coaching - five-plus revenue streams off one shop, all currently running through your head. That's the real bottleneck, not any one stream on its own. Phase one gets the core system live inside Spoke N Trail: your voice and all five streams loaded in, one booking flow replacing the DM-and-phone tag, and a content engine that turns the Tassie, NZ and TrailMates footage you're already filming into a repeatable month of social.</p>
-
-      <div class="pillars">
-        <div class="pillar">
-          <h4>Business Brain + Booking</h4>
-          <p>Your voice, your five revenue streams and Spoke N Trail's serious-rider positioning loaded into one Claude system - then a single booking flow across hire, tours, shuttles, coaching and service, so bookings stop running through your DMs and phone.</p>
-        </div>
-        <div class="pillar">
-          <h4>Content + Marketing Engine</h4>
-          <p>The tour and trail footage you're already filming, turned into a repeatable content system - plus the CRM/AI layer for customer engagement and automating your product launches.</p>
-        </div>
-      </div>
+      <div class="label">The core build</div>
+      <h2 class="section-title">Lightspeed + Shopify, <em>finally talking to each other</em></h2>
+      <p class="section-lead">Retail is the heart of Spoke N Trail, and it's about to get bigger with the new Noosaville store. Right now vendor data lands in a dozen different shapes - live feeds from the big brands, CSVs and image folders from the smaller ones - and someone has to manually turn all of that into clean listings across Lightspeed and Shopify. This is the build: a custom AI data-transformation pipeline that takes whatever format a vendor sends, sorts it centrally, and pushes it through - Lightspeed stays your master inventory, Shopify gets the rich product data your customers see.</p>
 
       <div class="offer-card">
-        <span class="tag">Done for you, installed in your business</span>
-        <h3>Phase One - Business Brain, Booking &amp; Marketing</h3>
-        <div class="price-block"><span class="price">$5,000</span><small>+ GST</small></div>
+        <span class="tag">Custom build &middot; own quote</span>
+        <h3>Lightspeed + Shopify Integration</h3>
+        <div class="price-tbc">Scoped once we're inside your systems</div>
         <ul class="offer-list">
-          <li>Business Brain loaded with your voice, your five revenue streams and Spoke N Trail's serious-rider positioning</li>
-          <li>One booking system across hire, tours, shuttles, coaching and service - the DM-and-phone tag stops</li>
-          <li>Content engine turning your Tassie, NZ and TrailMates footage into a repeatable month of social</li>
-          <li>Marketing automation layer for customer engagement and product-launch automation</li>
-          <li>Website upgrade - tour itineraries, pricing and rider testimonials added so the site sells the trust you've already earned</li>
-          <li>You walk away running it yourself - capability transferred, not a dependency created</li>
+          <li>Custom AI data-transformation tool handling live feeds, CSVs and image folders from your ~30 vendors, ~15,000 items</li>
+          <li>Lightspeed stays the master for stock and POS - Shopify gets accurate, rich product data pushed automatically</li>
+          <li>Built on the ChatGPT data-processing prompt you're already using - not starting from scratch</li>
+          <li>Hosted on AWS Sydney, compliant with Australian data law</li>
+          <li>Deployed within 30 days, running parallel to your current systems until it's proven</li>
         </ul>
       </div>
     </div>
@@ -141,21 +123,32 @@
 
   <section style="padding-top:0;">
     <div class="wrap">
-      <div class="label">What comes next</div>
-      <h2 class="section-title">The inventory system and staff training - <em>scoped separately</em></h2>
-      <p class="section-lead">Two pieces from our call go beyond a phase-one install and get scoped as their own projects once phase one is live and proven.</p>
+      <div class="label">Running alongside it</div>
+      <h2 class="section-title">Business Brain, marketing and staff layer - <em>installed and running</em></h2>
+      <p class="section-lead">While the inventory build is being scoped, this is what goes live first: your Business Brain, a marketing system that reactivates your cold customer list and automates product-launch announcements, an agent that keeps your staff current on new stock without you lifting a finger, and a financial dashboard pulling straight from QuickBooks.</p>
 
-      <div class="next-cards">
-        <div class="next-card">
-          <span class="tag">Custom build &middot; own quote</span>
-          <h4>Lightspeed + Shopify Integration</h4>
-          <p>A custom AI data-transformation tool linking Lightspeed Retail and Shopify across your ~15,000 items and ~30 vendors, on hosting compliant with Australian data law. Deployed within 30 days, running parallel to your current systems until it's proven.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h4>Business Brain + Marketing Automation</h4>
+          <p>Your voice and Spoke N Trail's retail-first positioning loaded into one Claude system, wired to a hybrid Claude + GHL CRM that reactivates your cold customer list and automates product-launch announcements across email, SMS and social.</p>
         </div>
-        <div class="next-card">
-          <span class="tag">Add-on &middot; own quote</span>
-          <h4>Staff Training</h4>
-          <p>Automated email monitoring so your team builds product knowledge as it happens, with no manual training overhead. Quoted separately once the core system is live.</p>
+        <div class="pillar">
+          <h4>Staff Knowledge + Financial Visibility</h4>
+          <p>An agent that watches your vendor inboxes, summarises new stock and pushes weekly updates to your team - plus a QuickBooks-linked dashboard so you can see revenue and forecasting without opening a spreadsheet.</p>
         </div>
+      </div>
+
+      <div class="offer-card">
+        <span class="tag">Done for you, installed in your business</span>
+        <h3>Business Brain, Marketing &amp; Financial Layer</h3>
+        <div class="price-block"><span class="price">$5,000</span><small>+ GST</small></div>
+        <ul class="offer-list">
+          <li>Business Brain loaded with your voice and Spoke N Trail's retail-first positioning</li>
+          <li>Hybrid Claude + GHL marketing automation - cold-list reactivation and product-launch announcements across email, SMS and social</li>
+          <li>Staff knowledge agent - vendor inboxes monitored, weekly product updates pushed automatically</li>
+          <li>QuickBooks-linked financial dashboard - revenue and forecasting in one place</li>
+          <li>You walk away running it yourself - capability transferred, not a dependency created</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -163,8 +156,8 @@
   <section class="close">
     <div class="wrap">
       <div class="label">Ready when you are</div>
-      <h2>Let's get phase one live</h2>
-      <p>Book a time and we'll lock in the install. Once phase one is running, we'll scope the Lightspeed/Shopify build and staff training as their own projects.</p>
+      <h2>Let's get started</h2>
+      <p>Book a time and we'll lock in scoping for the Lightspeed + Shopify build, and get the Business Brain and marketing layer live in the meantime.</p>
       <a class="book-btn" href="https://api.leadconnectorhq.com/widget/bookings/ai-with-soul-enquiry-call" target="_blank" rel="noopener">Book a time with Kelly</a>
       <div class="signoff">Kelly x</div>
     </div>
