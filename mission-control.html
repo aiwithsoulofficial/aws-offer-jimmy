@@ -221,7 +221,7 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
       <div class="nav-item active" data-tab="overview"><span class="ico">🧭</span>Overview</div>
       <div class="nav-item" data-tab="financials"><span class="ico">💰</span>Financials</div>
       <div class="nav-item" data-tab="products"><span class="ico">📦</span>Product Launches<span class="nb">3</span></div>
-      <div class="nav-item" data-tab="content"><span class="ico">🎬</span>Content Engine</div>
+      <div class="nav-item" data-tab="marketing"><span class="ico">📣</span>Marketing Automation</div>
       <div class="nav-item" data-tab="ads"><span class="ico">📈</span>Google Ads</div>
       <div class="nav-item" data-tab="community"><span class="ico">💬</span>Community Hub</div>
     </div>
@@ -250,43 +250,43 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
 
       <!-- ================= OVERVIEW ================= -->
       <div class="tab-panel active" id="tab-overview">
-        <div class="panel-sub">Everything feeding into one place - bookings, sales, content, ads and community, all wired through your Claude environment.</div>
+        <div class="panel-sub">Everything feeding into one place - inventory, sales, marketing and community, all wired through your Claude environment.</div>
 
         <div class="stat-grid">
           <div class="stat-card"><div class="stat-num" id="stat-hours">0</div><div class="stat-label">Hours<br>Reclaimed</div></div>
-          <div class="stat-card"><div class="stat-num" id="stat-bookings">0</div><div class="stat-label">Bookings<br>Synced</div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-bookings">0</div><div class="stat-label">Products<br>Synced</div></div>
           <div class="stat-card"><div class="stat-num green" id="stat-revenue">$0</div><div class="stat-label">Revenue<br>Attributed</div></div>
-          <div class="stat-card"><div class="stat-num" id="stat-content">0</div><div class="stat-label">Content<br>Auto-posted</div></div>
+          <div class="stat-card"><div class="stat-num" id="stat-content">0</div><div class="stat-label">Campaigns<br>Sent</div></div>
         </div>
 
         <div class="grid-3">
           <div>
-            <div class="section-label">Running Agents <span>5 ACTIVE</span></div>
+            <div class="section-label">Running Agents <span>4 ACTIVE</span></div>
             <div class="agent-item complete"><div class="agent-name">Morning Briefing</div><div class="agent-status complete"><div class="status-dot complete"></div>Completed</div><div class="agent-meta">Ran 7:02 AM - 3 priorities flagged</div></div>
-            <div class="agent-item active"><div class="agent-name">Booking Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Hire, tours, shuttles, coaching, service</div></div>
             <div class="agent-item active"><div class="agent-name">Vendor Intake Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">3 new products awaiting your approval</div></div>
-            <div class="agent-item active"><div class="agent-name">Content Engine</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Tassie footage - 4 clips queued</div></div>
-            <div class="agent-item active"><div class="agent-name">Community &amp; Ads Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Announcement drafted, ads monitored</div></div>
+            <div class="agent-item active"><div class="agent-name">Marketing Automation Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Cold-list reactivation + launch announcements</div></div>
+            <div class="agent-item active"><div class="agent-name">Staff Knowledge Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">Vendor inboxes monitored, weekly digest queued</div></div>
+            <div class="agent-item active"><div class="agent-name">Financial Forecasting Agent</div><div class="agent-status active"><div class="status-dot active"></div>Active</div><div class="agent-meta">QuickBooks synced, forecast updated</div></div>
           </div>
 
           <div>
             <div class="section-label">Activity Feed <span id="feed-count">12 TODAY</span></div>
             <div id="feed">
-              <div class="feed-item"><div class="feed-time">09:47</div><div class="feed-icon">📦</div><div class="feed-text"><strong>New vendor product - awaiting approval</strong><span>Pivot Trail 429, size M · Photos + pricing from Pivot loaded</span><div><span class="tag tag-alert">Approval</span></div></div></div>
-              <div class="feed-item"><div class="feed-time">09:44</div><div class="feed-icon">💰</div><div class="feed-text"><strong>Sale synced from Shopify</strong><span>$1,240 · Full-suspension hire package · QuickBooks updated</span><div><span class="tag tag-revenue">Financials</span></div></div></div>
-              <div class="feed-item"><div class="feed-time">09:41</div><div class="feed-icon">🚡</div><div class="feed-text"><strong>Shuttle booking synced</strong><span>Uphill shuttle, 9:00 AM Saturday · 6 riders confirmed</span><div><span class="tag tag-booking">Booking</span></div></div></div>
-              <div class="feed-item"><div class="feed-time">09:38</div><div class="feed-icon">💬</div><div class="feed-text"><strong>Announcement pushed - Community Hub</strong><span>TrailMates Thursday ride · FB Group + WhatsApp + Instagram</span><div><span class="tag tag-client">Community</span></div></div></div>
-              <div class="feed-item"><div class="feed-time">09:31</div><div class="feed-icon">🎬</div><div class="feed-text"><strong>Content scheduled - Instagram Reel</strong><span>Thursday 5:30 PM · "TrailMates night ride - this week's route"</span><div><span class="tag tag-content">Content</span></div></div></div>
-              <div class="feed-item"><div class="feed-time">09:19</div><div class="feed-icon">📈</div><div class="feed-text"><strong>Google Ads - budget shift approved</strong><span>+$15/day to Tasmania Tour campaign · CPA trending down</span><div><span class="tag tag-revenue">Ads</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:47</div><div class="feed-icon">📦</div><div class="feed-text"><strong>New vendor product - awaiting approval</strong><span>Pivot Trail 429, size M · Live feed data loaded</span><div><span class="tag tag-alert">Approval</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:44</div><div class="feed-icon">💰</div><div class="feed-text"><strong>Sale synced from Shopify</strong><span>$1,240 · Weekend hire package · QuickBooks updated</span><div><span class="tag tag-revenue">Financials</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:41</div><div class="feed-icon">🗂️</div><div class="feed-text"><strong>Vendor CSV processed</strong><span>40 items sorted and staged, ready for Shopify</span><div><span class="tag tag-booking">Vendor Intake</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:38</div><div class="feed-icon">📧</div><div class="feed-text"><strong>Cold-list reactivation email sent</strong><span>Day 3 of sequence · 128 contacts re-engaged</span><div><span class="tag tag-client">Marketing</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:31</div><div class="feed-icon">📣</div><div class="feed-text"><strong>Product-launch announcement scheduled</strong><span>New Rocky Mountain range · Email + SMS + Instagram, Friday 9am</span><div><span class="tag tag-content">Marketing</span></div></div></div>
+              <div class="feed-item"><div class="feed-time">09:19</div><div class="feed-icon">📈</div><div class="feed-text"><strong>Google Ads - budget shift approved</strong><span>+$15/day to New Store Launch campaign · CPA trending down</span><div><span class="tag tag-revenue">Ads</span></div></div></div>
             </div>
           </div>
 
           <div>
             <div class="section-label">Upcoming</div>
             <div class="upcoming-item"><div class="upcoming-time">10:00</div><div class="upcoming-desc">Weekly review briefing</div></div>
-            <div class="upcoming-item"><div class="upcoming-time">11:00</div><div class="upcoming-desc">TrailMates reel auto-publishes</div></div>
+            <div class="upcoming-item"><div class="upcoming-time">11:00</div><div class="upcoming-desc">Product-launch announcement sends</div></div>
             <div class="upcoming-item"><div class="upcoming-time">12:00</div><div class="upcoming-desc">Vendor approval reminder - 3 pending</div></div>
-            <div class="upcoming-item"><div class="upcoming-time">14:00</div><div class="upcoming-desc">Saturday shuttle roster confirms</div></div>
+            <div class="upcoming-item"><div class="upcoming-time">14:00</div><div class="upcoming-desc">Staff weekly digest sends</div></div>
             <div class="upcoming-item"><div class="upcoming-time">17:00</div><div class="upcoming-desc">Daily revenue + ad spend report</div></div>
           </div>
         </div>
@@ -305,14 +305,19 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
         </div>
 
         <div class="grid-2">
-          <div class="card">
-            <div class="section-label">Sales By Channel <span>MTD</span></div>
-            <div class="bar-row"><div class="bar-row-top"><span>Retail</span><span class="amt">$26,400</span></div><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div></div>
-            <div class="bar-row"><div class="bar-row-top"><span>Guided Tours</span><span class="amt">$14,100</span></div><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div></div>
-            <div class="bar-row"><div class="bar-row-top"><span>Bike Hire</span><span class="amt">$9,850</span></div><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div></div>
-            <div class="bar-row"><div class="bar-row-top"><span>Workshop / Service</span><span class="amt">$6,300</span></div><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div></div>
-            <div class="bar-row"><div class="bar-row-top"><span>Shuttles</span><span class="amt">$3,100</span></div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div></div>
-            <div class="bar-row" style="margin-bottom:0;"><div class="bar-row-top"><span>Skills Coaching</span><span class="amt">$1,450</span></div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div></div>
+          <div class="stack">
+            <div class="card">
+              <div class="section-label">Sales By Channel <span>MTD</span></div>
+              <div class="bar-row"><div class="bar-row-top"><span>Retail</span><span class="amt">$34,200</span></div><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div></div>
+              <div class="bar-row"><div class="bar-row-top"><span>Workshop / Service</span><span class="amt">$9,850</span></div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div></div>
+              <div class="bar-row"><div class="bar-row-top"><span>Bike Hire</span><span class="amt">$6,300</span></div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div></div>
+              <div class="bar-row"><div class="bar-row-top"><span>Guided Tours</span><span class="amt">$3,100</span></div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div>
+              <div class="bar-row" style="margin-bottom:0;"><div class="bar-row-top"><span>Skills Coaching</span><span class="amt">$1,450</span></div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div></div>
+            </div>
+            <div class="card">
+              <div class="section-label">30-Day Forecast <span>QuickBooks-linked</span></div>
+              <div style="font-size:.78rem;color:var(--text-mid);line-height:1.7;">Projected revenue <strong style="color:var(--navy);">$58,900</strong> - coordinated with the Noosaville store opening and the next scheduled product launch.</div>
+            </div>
           </div>
 
           <div class="stack">
@@ -335,7 +340,7 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
       <!-- ================= PRODUCT LAUNCHES ================= -->
       <div class="tab-panel" id="tab-products">
         <div class="panel-heading">Product Launches</div>
-        <div class="panel-sub">Every new item a vendor pushes lands here first - you approve price and photos before it ever goes live on Shopify.</div>
+        <div class="panel-sub">Every vendor sends data differently - live feeds, CSVs, image folders. It all lands in one central place, gets sorted, and you approve price and photos before it pushes to Shopify.</div>
 
         <div class="section-label">Pending Your Approval <span>3</span></div>
         <div class="product-card">
@@ -373,35 +378,35 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
           </div>
           <div class="card">
             <div class="section-label">How It Works</div>
-            <div style="font-size:.78rem;color:var(--text-mid);line-height:1.7;">Vendor pushes a new product &rarr; it lands here, not live. You approve price and photos &rarr; it publishes to Shopify automatically. The same card gets pushed to your staff as a quick-read spec sheet, so the floor knows the product before a customer asks.</div>
+            <div style="font-size:.78rem;color:var(--text-mid);line-height:1.7;">Vendor data lands centrally - live feed, CSV or image folder, whatever format it arrives in - and gets sorted into what Shopify needs. You approve price and photos &rarr; it publishes automatically. The same card gets pushed to your staff as a quick-read spec sheet, so the floor knows the product before a customer asks.</div>
           </div>
         </div>
       </div>
 
-      <!-- ================= CONTENT ENGINE ================= -->
-      <div class="tab-panel" id="tab-content">
-        <div class="panel-heading">Content Engine</div>
-        <div class="panel-sub">Every channel, one queue - built from the tour and trail footage you're already filming.</div>
+      <!-- ================= MARKETING AUTOMATION ================= -->
+      <div class="tab-panel" id="tab-marketing">
+        <div class="panel-heading">Marketing Automation</div>
+        <div class="panel-sub">Email, SMS and social, unified - reactivating your cold list and announcing every new product launch automatically.</div>
 
         <div class="card" style="margin-bottom:20px;">
           <div class="section-label">This Week's Queue</div>
-          <div class="content-row"><div class="channel-chip">📸 Instagram</div><div class="content-time">Thu 5:30 PM</div><div class="content-title">TrailMates night ride - this week's route</div><div class="status-scheduled">Scheduled</div></div>
-          <div class="content-row"><div class="channel-chip">👥 Facebook</div><div class="content-time">Wed 9:00 AM</div><div class="content-title">Tasmania tour recap - rider gallery</div><div class="status-queued">Queued</div></div>
-          <div class="content-row"><div class="channel-chip">✉️ Email</div><div class="content-time">Fri 8:00 AM</div><div class="content-title">NZ 2027 tour - early bird for past riders</div><div class="status-queued">Queued</div></div>
-          <div class="content-row"><div class="channel-chip">📝 Blog / SEO</div><div class="content-time">Mon 10:00 AM</div><div class="content-title">Noosa hinterland trail guide - 5 rides for every level</div><div class="status-scheduled">Scheduled</div></div>
+          <div class="content-row"><div class="channel-chip">✉️ Email</div><div class="content-time">Wed 9:00 AM</div><div class="content-title">Cold-list reactivation - day 3 of sequence</div><div class="status-scheduled">Scheduled</div></div>
+          <div class="content-row"><div class="channel-chip">💬 SMS</div><div class="content-time">Thu 10:00 AM</div><div class="content-title">New stock alert - Pivot Trail 429 restock</div><div class="status-queued">Queued</div></div>
+          <div class="content-row"><div class="channel-chip">📸 Instagram</div><div class="content-time">Fri 9:00 AM</div><div class="content-title">Product launch - new Rocky Mountain range</div><div class="status-scheduled">Scheduled</div></div>
+          <div class="content-row"><div class="channel-chip">👥 Facebook</div><div class="content-time">Mon 9:00 AM</div><div class="content-title">Noosaville store opening announcement</div><div class="status-queued">Queued</div></div>
         </div>
 
-        <div class="section-label">Source Footage</div>
+        <div class="section-label">Cold List Reactivation</div>
         <div class="grid-2">
-          <div class="card"><strong style="font-size:.85rem;color:var(--navy);">Tasmania Tour - latest run</strong><div style="font-size:.72rem;color:var(--text-light);margin-top:6px;">4 clips identified · captions drafted in your voice</div></div>
-          <div class="card"><strong style="font-size:.85rem;color:var(--navy);">TrailMates Thursday Rides</strong><div style="font-size:.72rem;color:var(--text-light);margin-top:6px;">6 clips logged this month · weekly reel pattern</div></div>
+          <div class="card"><strong style="font-size:.85rem;color:var(--navy);">1,380 contacts</strong><div style="font-size:.72rem;color:var(--text-light);margin-top:6px;">128 re-engaged this month · migrating from Mailchimp to GHL</div></div>
+          <div class="card"><strong style="font-size:.85rem;color:var(--navy);">Product-launch automation</strong><div style="font-size:.72rem;color:var(--text-light);margin-top:6px;">Announcements fire the moment a product is approved and goes live on Shopify</div></div>
         </div>
       </div>
 
       <!-- ================= GOOGLE ADS ================= -->
       <div class="tab-panel" id="tab-ads">
         <div class="panel-heading">Google Ads</div>
-        <div class="panel-sub">Spend, clicks and bookings attributed - watched daily so budget moves to what's working.</div>
+        <div class="panel-sub">Spend, clicks and sales attributed - watched daily so budget moves to what's working.</div>
 
         <div class="stat-grid">
           <div class="stat-card"><div class="stat-num">$1,860</div><div class="stat-label">Spend<br>MTD</div></div>
@@ -414,10 +419,10 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
           <div class="section-label">Active Campaigns</div>
           <table class="ads-table">
             <tr><th>Campaign</th><th>Spend</th><th>CTR</th><th>Conversions</th><th>Status</th></tr>
-            <tr><td><div class="campaign-name">Tasmania Tour Bookings</div><div class="campaign-meta">Search + Display</div></td><td class="num">$620</td><td class="num">4.8%</td><td class="num">22</td><td><span class="pill-active">Active</span></td></tr>
+            <tr><td><div class="campaign-name">Retail - New Store Launch</div><div class="campaign-meta">Search + Display</div></td><td class="num">$620</td><td class="num">4.8%</td><td class="num">22</td><td><span class="pill-active">Active</span></td></tr>
             <tr><td><div class="campaign-name">Weekend Hire Promo</div><div class="campaign-meta">Search</div></td><td class="num">$410</td><td class="num">3.9%</td><td class="num">31</td><td><span class="pill-active">Active</span></td></tr>
             <tr><td><div class="campaign-name">Retail - Trail Bike Range</div><div class="campaign-meta">Shopping</div></td><td class="num">$540</td><td class="num">2.6%</td><td class="num">18</td><td><span class="pill-active">Active</span></td></tr>
-            <tr><td><div class="campaign-name">Shuttle Bookings - Local</div><div class="campaign-meta">Search</div></td><td class="num">$290</td><td class="num">5.2%</td><td class="num">15</td><td><span class="pill-active">Active</span></td></tr>
+            <tr><td><div class="campaign-name">Retail Remarketing</div><div class="campaign-meta">Display</div></td><td class="num">$290</td><td class="num">5.2%</td><td class="num">15</td><td><span class="pill-active">Active</span></td></tr>
           </table>
         </div>
       </div>
@@ -425,36 +430,34 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
       <!-- ================= COMMUNITY HUB ================= -->
       <div class="tab-panel" id="tab-community">
         <div class="panel-heading">Community Hub</div>
-        <div class="panel-sub">Every channel your riders live in, in one place - push an announcement once, it lands everywhere.</div>
+        <div class="panel-sub">Right now your community lives in scattered groups - this brings them into one place you can see and post to.</div>
 
         <div class="grid-2">
           <div>
-            <div class="section-label">Your Channels</div>
-            <div class="channel-card"><div class="channel-ico">👥</div><div class="channel-info"><strong>Spoke N Trail Riders</strong><span>Private Facebook Group</span></div><div class="channel-count"><b>842</b><span>Members</span></div></div>
-            <div class="channel-card"><div class="channel-ico">💬</div><div class="channel-info"><strong>TrailMates Crew</strong><span>Facebook Messenger Group</span></div><div class="channel-count"><b>96</b><span>Members</span></div></div>
-            <div class="channel-card"><div class="channel-ico">📱</div><div class="channel-info"><strong>Ride Alerts</strong><span>WhatsApp Broadcast List</span></div><div class="channel-count"><b>214</b><span>Subscribers</span></div></div>
+            <div class="section-label">Your Channels Today <span>Fragmented</span></div>
+            <div class="channel-card"><div class="channel-ico">🚴</div><div class="channel-info"><strong>Spoke N Trail</strong><span>Strava Cycling Club</span></div><div class="channel-count"><b>180</b><span>Members</span></div></div>
+            <div class="channel-card"><div class="channel-ico">💬</div><div class="channel-info"><strong>Ride Crew</strong><span>Facebook Messenger Group</span></div><div class="channel-count"><b>40</b><span>Members</span></div></div>
+            <div class="channel-card"><div class="channel-ico">📱</div><div class="channel-info"><strong>Ride Alerts</strong><span>WhatsApp Group</span></div><div class="channel-count"><b>64</b><span>Members</span></div></div>
             <div class="channel-card"><div class="channel-ico">📸</div><div class="channel-info"><strong>@spokentrail</strong><span>Instagram</span></div><div class="channel-count"><b>5.1K</b><span>Followers</span></div></div>
-            <div class="channel-card"><div class="channel-ico">✉️</div><div class="channel-info"><strong>Rider List</strong><span>Email / GHL</span></div><div class="channel-count"><b>1,380</b><span>Contacts</span></div></div>
+            <div class="channel-card"><div class="channel-ico">✉️</div><div class="channel-info"><strong>Customer List</strong><span>Mailchimp &rarr; migrating to GHL</span></div><div class="channel-count"><b>1,380</b><span>Contacts</span></div></div>
           </div>
 
           <div class="stack">
+            <div class="card">
+              <div class="section-label">No Unified Group Yet</div>
+              <div style="font-size:.78rem;color:var(--text-mid);line-height:1.7;">There's no single public community page today - Strava, WhatsApp and Messenger all run separately. This hub consolidates them so one announcement reaches every channel at once, without you posting the same thing five times.</div>
+            </div>
             <div class="composer">
               <div class="section-label">Push An Announcement</div>
-              <textarea placeholder="TrailMates ride moved to Friday this week - same trailhead, 5:30pm start..."></textarea>
+              <textarea placeholder="New stock landing Friday - come check out the new range..."></textarea>
               <div class="composer-channels">
-                <div class="cc-check on">✓ FB Group</div>
+                <div class="cc-check on">✓ Strava</div>
                 <div class="cc-check on">✓ Messenger</div>
                 <div class="cc-check on">✓ WhatsApp</div>
                 <div class="cc-check">Instagram</div>
                 <div class="cc-check">Email</div>
               </div>
               <div class="push-btn">Push To All Selected Channels</div>
-            </div>
-            <div class="card">
-              <div class="section-label">Recent Announcements</div>
-              <div class="announce-row"><strong>TrailMates Thursday ride confirmed</strong><span>FB Group + WhatsApp + Instagram Story · 92 combined reactions</span></div>
-              <div class="announce-row"><strong>New Rocky Mountain stock landing Friday</strong><span>FB Group + Email · 340 opens</span></div>
-              <div class="announce-row" style="border-bottom:none;"><strong>Tasmania tour - 2 spots left</strong><span>WhatsApp + Instagram · 4 enquiries same day</span></div>
             </div>
           </div>
         </div>
@@ -463,7 +466,7 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
     </div>
 
     <div class="statusbar">
-      <div class="statusbar-left"><span class="status-ok">● All systems operational</span> &nbsp; 5 agents running &nbsp; 38 actions completed today</div>
+      <div class="statusbar-left"><span class="status-ok">● All systems operational</span> &nbsp; 4 agents running &nbsp; 38 actions completed today</div>
       <div class="statusbar-right"><div class="update-dot"></div><span id="last-update">Updated just now</span></div>
     </div>
   </div>
@@ -471,7 +474,7 @@ body { display:flex; flex-direction:column; height:100vh; overflow:hidden; }
 
 <script>
 // Tab switching
-const titles = { overview:'Overview', financials:'Financials', products:'Product Launches', content:'Content Engine', ads:'Google Ads', community:'Community Hub' };
+const titles = { overview:'Overview', financials:'Financials', products:'Product Launches', marketing:'Marketing Automation', ads:'Google Ads', community:'Community Hub' };
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', () => {
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -517,10 +520,10 @@ setTimeout(() => {
 
 // Live feed - add new items periodically
 const newItems = [
-  { icon:'🚵', strong:'Booking confirmed - guided day tour', text:'Noosa hinterland loop · 3 riders · Deposit received', tag:'tag-booking', label:'Booking' },
   { icon:'📦', strong:'New vendor product logged', text:'Specialized stock drop · Awaiting your price approval', tag:'tag-alert', label:'Approval' },
   { icon:'💰', strong:'Sale synced from Shopify', text:'$399 · Helmet · QuickBooks updated automatically', tag:'tag-revenue', label:'Financials' },
-  { icon:'💬', strong:'Announcement pushed - Community Hub', text:'Stock drop alert · FB Group + WhatsApp', tag:'tag-client', label:'Community' },
+  { icon:'📧', strong:'Product-launch email sent', text:'New stock alert · 1,380 contacts · 24% open rate so far', tag:'tag-content', label:'Marketing' },
+  { icon:'💬', strong:'Announcement pushed - Community Hub', text:'Stock drop alert · Strava + WhatsApp + Messenger', tag:'tag-client', label:'Community' },
 ];
 let itemIdx = 0;
 function addFeedItem() {
